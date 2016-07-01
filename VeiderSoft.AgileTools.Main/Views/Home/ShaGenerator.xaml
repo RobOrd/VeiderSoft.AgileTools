@@ -1,0 +1,27 @@
+<mvvm:View xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:mvvm="clr-namespace:CODE.Framework.Wpf.Mvvm;assembly=CODE.Framework.Wpf.Mvvm"
+           xmlns:controls="clr-namespace:CODE.Framework.Wpf.Controls;assembly=CODE.Framework.Wpf"
+           Title="SHA-1 Generator">
+
+    <Grid controls:GridEx.RowHeights="Auto,*">
+        <mvvm:View Style="{DynamicResource CODE.Framework-Layout-EditFormLayout}" Grid.Row="0" mvvm:View.WidthEx="600">
+            <Label>Messsage</Label>
+            <TextBox Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" mvvm:View.HasDefaultFocus="True" 
+                MaxLength="1024" mvvm:View.WidthEx="100">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding HashCommand}" Key="Enter" />
+                </TextBox.InputBindings>
+            </TextBox>
+
+            <Label>Tag</Label>
+            <TextBox mvvm:View.WidthEx="10" Text="{Binding OutputReducido, Mode=OneWay}" />
+
+            <Label mvvm:View.GroupBreak="True">Search</Label>
+            <TextBox mvvm:View.WidthEx="50" />
+        </mvvm:View>
+
+        <ListBox ItemsSource="{Binding Messages}" Style="{DynamicResource ListBox-Messages}"
+            Margin="10,-35,10,5" Grid.Row="1"  />
+    </Grid>
+</mvvm:View>
+    

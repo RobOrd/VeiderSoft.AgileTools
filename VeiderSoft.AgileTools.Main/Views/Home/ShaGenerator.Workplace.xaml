@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:CODE.Framework.Wpf.Controls;assembly=CODE.Framework.Wpf">
+
+    <Style x:Key="ListBox-Messages" TargetType="ListBox" BasedOn="{StaticResource Workplace-Control-ListBox}">
+        <Setter Property="controls:ListEx.Columns">
+            <Setter.Value>
+                <controls:ListColumnsCollection>
+                    <controls:ListColumn Header="Id" Width="40" >
+                        <controls:ListColumn.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" />
+                            </DataTemplate>
+                        </controls:ListColumn.ItemTemplate>
+                    </controls:ListColumn>
+                    <controls:ListColumn Header="Tag" Width="100" >
+                        <controls:ListColumn.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Text1}" />
+                            </DataTemplate>
+                        </controls:ListColumn.ItemTemplate>
+                    </controls:ListColumn>
+                    <controls:ListColumn Header="Message" Width="600" >
+                        <controls:ListColumn.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Text2}" />
+                            </DataTemplate>
+                        </controls:ListColumn.ItemTemplate>
+                    </controls:ListColumn>
+                </controls:ListColumnsCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

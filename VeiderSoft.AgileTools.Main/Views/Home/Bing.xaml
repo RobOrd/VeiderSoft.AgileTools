@@ -1,0 +1,16 @@
+<mvvm:View xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:mvvm="clr-namespace:CODE.Framework.Wpf.Mvvm;assembly=CODE.Framework.Wpf.Mvvm"
+           Title="Bing Photo" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Image Source="{Binding WPFPhotoOfTheDay}" Width="1200" />
+        <Border Grid.Row="1" Background="#FF363636">
+            <TextBlock Foreground="White" Text="{Binding CoppyRightData}" HorizontalAlignment="Center" />
+        </Border>
+    </Grid>
+    
+</mvvm:View>
