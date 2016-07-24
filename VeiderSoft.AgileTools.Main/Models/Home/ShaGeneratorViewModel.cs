@@ -19,8 +19,24 @@ namespace Project.Client.SHAGenerator.Models.Home
     {
         private string input;
         private string output;
+        private string searchKey;
         private ObservableCollection<StandardDataList> messages;
 
+        public string SearchKey
+        {
+            get
+            {
+                return searchKey;
+            }
+            set
+            {
+                if (searchKey == value) return;
+                searchKey = value;
+                NotifyChanged("SearchKey");
+
+                this.SearchCommand.InvalidateCanExecute();
+            }
+        }
         public string Input
         {
             get
@@ -73,16 +89,20 @@ namespace Project.Client.SHAGenerator.Models.Home
         }
 
         public ViewAction HashCommand { get; private set; }
+        public ViewAction SearchCommand { get; private set; }
 
         public ShaGeneratorViewModel()
         {
             HashCommand = new ViewAction("Hash", execute: (a, o) => { ComputeHash(); }, canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.Input); }, brushResourceKey: "CODE.Framework-Icon-Collapsed");
+            SearchCommand = new ViewAction("Search", execute: (a, o) => { Search(); }, canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.SearchKey); }, brushResourceKey: "CODE.Framework-Icon-Search");
 
             Actions.Add(HashCommand);
+            Actions.Add(SearchCommand);
             Actions.Add(new CloseCurrentViewAction(this, beginGroup: true));
 
             this.Input = string.Empty;
             this.Output = string.Empty;
+            this.SearchKey = string.Empty;
             this.Messages = new ObservableCollection<StandardDataList>();
 
             LoadMessages();
@@ -98,7 +118,8 @@ namespace Project.Client.SHAGenerator.Models.Home
                  {
                      using(var adapter = new DataAccessAdapter())
                      {
-                         adapter.FetchEntityCollection(result, null);
+                         ISortExpression sort = new SortExpression((MessageFields.Id | SortOperator.Descending));
+                         adapter.FetchEntityCollection(result, null, 30, sort);
                      }
                  }  
                  catch { }
@@ -141,6 +162,35 @@ namespace Project.Client.SHAGenerator.Models.Home
 
             return false;
         }
+        private void Search()
+        {
+            AsyncWorker.Execute(
+             () =>
+             {
+                 var result = new EntityCollection<MessageEntity>();
+                 try
+                 {
+                     var key = $"%{this.SearchKey}%";
+                     using (var adapter = new DataAccessAdapter())
+                     {
+                         IRelationPredicateBucket filter = new RelationPredicateBucket();
+                         filter.PredicateExpression.Add(new FieldLikePredicate(MessageFields.Message, null, key));
+                         filter.PredicateExpression.AddWithOr(MessageFields.Tag == this.SearchKey);
+
+                         adapter.FetchEntityCollection(result, filter);
+                     }
+                 }
+                 catch { }
+                 return result;
+             },
+             (response) =>
+             {
+                 if (response == null) return;
+                 ProcessResponseLoadMessages(response);
+             }, this, ModelStatus.Saving);
+
+            
+        }
         private bool DuplicateHash(string hash)
         {
             var entity = new MessageEntity();
@@ -164,7 +214,6 @@ namespace Project.Client.SHAGenerator.Models.Home
                     IsChecked = m.Active
                 });
         }
-        
         private void ComputeHash()
         {
             this.Output = GetSHA1HashData(this.Input.Trim());
@@ -184,6 +233,7 @@ namespace Project.Client.SHAGenerator.Models.Home
                 LoadMessages();
             }
         }
+       
         private string GetSHA1HashData(string data)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(data);

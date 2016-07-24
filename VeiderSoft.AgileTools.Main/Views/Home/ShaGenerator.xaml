@@ -14,10 +14,15 @@
             </TextBox>
 
             <Label>Tag</Label>
-            <TextBox mvvm:View.WidthEx="10" Text="{Binding OutputReducido, Mode=OneWay}" />
+            <TextBox mvvm:View.WidthEx="10" Text="{Binding OutputReducido, Mode=OneWay}" IsReadOnly="True" />
 
             <Label mvvm:View.GroupBreak="True">Search</Label>
-            <TextBox mvvm:View.WidthEx="50" />
+            <TextBox Text="{Binding SearchKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                MaxLength="63" mvvm:View.WidthEx="40">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding SearchCommand}" Key="Enter" />
+                </TextBox.InputBindings>
+            </TextBox>
         </mvvm:View>
 
         <ListBox ItemsSource="{Binding Messages}" Style="{DynamicResource ListBox-Messages}"
