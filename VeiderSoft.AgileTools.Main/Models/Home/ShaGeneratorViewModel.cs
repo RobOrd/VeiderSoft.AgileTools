@@ -20,6 +20,7 @@ namespace Project.Client.SHAGenerator.Models.Home
         private string input;
         private string searchKey;
         private ObservableCollection<StandardDataList> messages;
+        private StandardDataList selectedMessage;
 
         public string SearchKey
         {
@@ -64,17 +65,35 @@ namespace Project.Client.SHAGenerator.Models.Home
                 NotifyChanged("Messages");
             }
         }
+        public StandardDataList SelectedMessage
+        {
+            get
+            {
+                return selectedMessage;
+            }
+            set
+            {
+                if (value == selectedMessage) return;
+                selectedMessage = value;
+                NotifyChanged("SelectedMessage");
+
+                CopyCommand.InvalidateCanExecute();
+            }
+        }
 
         public ViewAction HashCommand { get; private set; }
         public ViewAction SearchCommand { get; private set; }
+        public ViewAction CopyCommand { get; private set; }
 
         public ShaGeneratorViewModel()
         {
-            HashCommand = new ViewAction("Hash", execute: (a, o) => { ComputeHash(); }, canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.Input); }, brushResourceKey: "CODE.Framework-Icon-Collapsed");
-            SearchCommand = new ViewAction("Search", execute: (a, o) => { Search(); }, canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.SearchKey); }, brushResourceKey: "CODE.Framework-Icon-Search");
+            HashCommand = new ViewAction("Hash", execute: (a, o) => ComputeHash(), canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.Input); }, brushResourceKey: "CODE.Framework-Icon-Collapsed");
+            SearchCommand = new ViewAction("Search", execute: (a, o) => Search(), canExecute: (a, o) => { return !string.IsNullOrWhiteSpace(this.SearchKey); }, brushResourceKey: "CODE.Framework-Icon-Search");
+            CopyCommand = new ViewAction("Copy", execute: (a, o) => Copy(), canExecute: (a, o) => { return this.SelectedMessage != null; }, brushResourceKey: "CODE.Framework-Icon-Copy");
 
             Actions.Add(HashCommand);
             Actions.Add(SearchCommand);
+            Actions.Add(CopyCommand);
             Actions.Add(new CloseCurrentViewAction(this, beginGroup: true));
 
             this.Input = string.Empty;
@@ -166,6 +185,13 @@ namespace Project.Client.SHAGenerator.Models.Home
              }, this, ModelStatus.Saving);
 
             
+        }
+        private void Copy()
+        {
+            //Copiar el hash del mensaje seleccionado al portapapeles
+            var result = this.SelectedMessage.Text1;
+            Clipboard.SetText(result);
+            Controller.Message(result, "Mensaje copiado al portapapeles...");
         }
         private bool DuplicateHash(string hash)
         {

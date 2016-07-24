@@ -22,7 +22,7 @@
             </TextBox>
         </mvvm:View>
 
-        <ListBox ItemsSource="{Binding Messages}" Style="{DynamicResource ListBox-Messages}"
+        <ListBox ItemsSource="{Binding Messages}" SelectedItem="{Binding SelectedMessage}" Style="{DynamicResource ListBox-Messages}"
             Margin="10,-35,10,5" Grid.Row="1"  />
     </Grid>
 </mvvm:View>
