@@ -18,7 +18,6 @@ namespace Project.Client.SHAGenerator.Models.Home
     public class ShaGeneratorViewModel : ViewModel
     {
         private string input;
-        private string output;
         private string searchKey;
         private ObservableCollection<StandardDataList> messages;
 
@@ -52,28 +51,6 @@ namespace Project.Client.SHAGenerator.Models.Home
                 this.HashCommand.InvalidateCanExecute();
             }
         }
-        public string Output
-        {
-            get
-            {
-                return output;
-            }
-            set
-            {
-                if (output == value) return;
-                output = value;
-                NotifyChanged("Output");
-            }
-        }
-        public string OutputReducido
-        {
-            get
-            {
-                if(Output.Length > 7)
-                    return Output.Substring(0,7);
-                return string.Empty;
-            }
-        }
         public ObservableCollection<StandardDataList> Messages
         {
             get
@@ -101,7 +78,6 @@ namespace Project.Client.SHAGenerator.Models.Home
             Actions.Add(new CloseCurrentViewAction(this, beginGroup: true));
 
             this.Input = string.Empty;
-            this.Output = string.Empty;
             this.SearchKey = string.Empty;
             this.Messages = new ObservableCollection<StandardDataList>();
 
@@ -216,20 +192,18 @@ namespace Project.Client.SHAGenerator.Models.Home
         }
         private void ComputeHash()
         {
-            this.Output = GetSHA1HashData(this.Input.Trim());
-            NotifyChanged("OutputReducido");
+            var hash = GetSHA1HashData(this.Input.Trim());
+            if(hash.Length > 7)
+                hash = hash.Substring(0, 7);
 
-            if (SaveMessage(this.OutputReducido, this.Input.Trim()))
+            if (SaveMessage(hash, this.Input.Trim()))
             {
                 //Copiar resultado al portapapeles
-                var result = this.OutputReducido + "\t" + this.Input.Trim();
+                var result = hash + "\t" + this.Input.Trim();
                 Clipboard.SetText(result);
                 Controller.Message(result, "Mensaje persistido y copiado al portapapeles...");
 
                 this.Input = string.Empty;
-                this.Output = string.Empty;
-                NotifyChanged("OutputReducido");
-
                 LoadMessages();
             }
         }
