@@ -25,5 +25,10 @@ namespace Project.Client.SHAGenerator.Controllers
         {
             return ViewModal("Bing", new BingViewModel());
         }
+
+        public ActionResult Build()
+        {
+            return ViewModal("Build", new BuildViewModel());
+        }
     }
 }

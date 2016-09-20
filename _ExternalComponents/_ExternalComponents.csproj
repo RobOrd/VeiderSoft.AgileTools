@@ -94,6 +94,7 @@
     <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Workplace.XML" />
     <Content Include="CODEFramework\CODE.Framework.Wpf.XML" />
     <Content Include="ReadMe.txt" />
+    <Content Include="Tools\ReadFileConsoleApp.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

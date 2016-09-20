@@ -67,6 +67,9 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CODE.Framework.Core">
       <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.dll</HintPath>
@@ -105,6 +108,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Workplace.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="ReadFileConsoleApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_ExternalComponents\Tools\ReadFileConsoleApp.exe</HintPath>
+    </Reference>
     <Reference Include="SD.LLBLGen.Pro.DQE.SqlServer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ORDICO\CIDGIT\_ExternalComponents\LLBLGen\SD.LLBLGen.Pro.DQE.SqlServer.dll</HintPath>
@@ -115,6 +124,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -142,6 +152,7 @@
     <Compile Include="Clases\StandardDataList.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Home\BingViewModel.cs" />
+    <Compile Include="Models\Home\BuildViewModel.cs" />
     <Compile Include="Models\Home\PasswordGeneratorViewModel.cs" />
     <Compile Include="Models\Home\ShaGeneratorViewModel.cs" />
     <Compile Include="Models\Home\StartViewModel.cs" />
@@ -292,6 +303,50 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home\Bing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Build.Battleship.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Geek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Metro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Vapor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Wildcat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.Workplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Build.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Build.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
