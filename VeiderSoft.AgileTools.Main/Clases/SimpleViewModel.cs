@@ -38,7 +38,5 @@ namespace Orion.Client.Core
         //}
 
         public event PropertyChangedEventHandler PropertyChanged;
-        //public event EventHandler CodigoChanged;
-
     }
 }
