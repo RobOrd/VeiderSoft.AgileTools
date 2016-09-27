@@ -14,8 +14,6 @@ namespace VeiderSoft.AgileTools.Main.Models.Home
 {
     public class BuildViewModel : ViewModel
     {
-
-
         public ViewAction BuildCommand { get; private set; }
         public ViewAction DropedElementDetectedCommand { get; private set; }
 
