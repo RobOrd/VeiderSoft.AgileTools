@@ -174,7 +174,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Artifacts\ORMFile.llblgenproj" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -418,14 +417,13 @@
     <Resource Include="Images\Application.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Artifacts\ORMFile.csproj">
-      <Project>{f7c5805c-fdb4-49c0-b588-be9a1931e1b3}</Project>
-      <Name>ORMFile</Name>
-    </ProjectReference>
     <ProjectReference Include="Artifacts\ORMFileDBSpecific.csproj">
       <Project>{556467f7-6805-4dca-8c33-e32c37337046}</Project>
       <Name>ORMFileDBSpecific</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Artifacts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
