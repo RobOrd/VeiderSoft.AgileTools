@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{556467F7-6805-4DCA-8C33-E32C37337046}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ORMFile.DatabaseSpecific</RootNamespace>
+    <AssemblyName>ORMFileDBSpecific</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>DatabaseSpecific\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>DatabaseSpecific\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SD.LLBLGen.Pro.ORMSupportClasses, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
+      <SpecificVersion>True</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Solutions Design\LLBLGen Pro v4.1\Frameworks\LLBLGen Pro\RuntimeLibraries\CompiledRuntimeLibraries\NET4.5\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="SD.LLBLGen.Pro.DQE.SqlServer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
+      <SpecificVersion>True</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Solutions Design\LLBLGen Pro v4.1\Frameworks\LLBLGen Pro\RuntimeLibraries\CompiledRuntimeLibraries\</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <None Include="DatabaseSpecific\App.config">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </None>
+    <Compile Include="DatabaseGeneric\AssemblyInfo.cs" />
+    <Compile Include="DatabaseGeneric\ConstantsEnums.cs" />
+    <Compile Include="DatabaseGeneric\EntityClasses\CommonEntityBase.cs" />
+    <Compile Include="DatabaseGeneric\EntityClasses\MessageEntity.cs" />
+    <Compile Include="DatabaseGeneric\FactoryClasses\EntityFactories.cs" />
+    <Compile Include="DatabaseGeneric\FactoryClasses\EntityFieldFactory.cs" />
+    <Compile Include="DatabaseGeneric\FactoryClasses\EntityFieldsFactory.cs" />
+    <Compile Include="DatabaseGeneric\FactoryClasses\QueryFactory.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\EntityCollection.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\FieldCreationClasses.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\FieldInfoProvider.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\InheritanceInfoProvider.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\ResultsetFields.cs" />
+    <Compile Include="DatabaseGeneric\HelperClasses\TypeDefaultValue.cs" />
+    <Compile Include="DatabaseGeneric\Linq\LinqMetaData.cs" />
+    <Compile Include="DatabaseGeneric\RelationClasses\DynamicRelation.cs" />
+    <Compile Include="DatabaseGeneric\RelationClasses\MessageRelations.cs" />
+    <Compile Include="DatabaseSpecific\ActionProcedures.cs" />
+    <Compile Include="DatabaseSpecific\DataAccessAdapter.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DatabaseSpecific\PersistenceInfoProvider.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DatabaseSpecific\RetrievalProcedures.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <None Include="ORMFile.llblgenproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseGeneric\bin\Debug\ORMFile.dll" />
+    <Content Include="DatabaseGeneric\bin\Debug\ORMFile.pdb" />
+    <Content Include="DatabaseGeneric\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.dll" />
+    <Content Include="DatabaseGeneric\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.pdb" />
+    <Content Include="ORMFile.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
