@@ -154,6 +154,7 @@
     <Compile Include="Models\Home\BingViewModel.cs" />
     <Compile Include="Models\Home\BuildViewModel.cs" />
     <Compile Include="Models\Home\PasswordGeneratorViewModel.cs" />
+    <Compile Include="Models\Home\ResourceVisualizerViewModel.cs" />
     <Compile Include="Models\Home\ShaGeneratorViewModel.cs" />
     <Compile Include="Models\Home\StartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -391,6 +392,50 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home\PasswordGenerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Battleship.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Geek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Metro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Vapor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Wildcat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.Workplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>ResourceVisualizer.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\ResourceVisualizer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
