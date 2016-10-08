@@ -11,7 +11,7 @@
                 <VisualBrush>
                     <VisualBrush.Visual>
                         <Rectangle StrokeDashArray="4 2"
-                          Stroke="Red"
+                          Stroke="DarkGray"
                           StrokeThickness="2"
                           RadiusX="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.TopRight}"
                           RadiusY="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.BottomLeft}"
@@ -24,23 +24,27 @@
                 <controls:EventCommand Command="{Binding DropedElementDetectedCommand}" Event="Drop" />
             </controls:Ex.EventCommand>
             
-            <TextBlock Text="Arrastra el archivo ResourceDictionary aquí." VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock Text="Arrastra el archivo ResourceDictionary aquí." VerticalAlignment="Center" HorizontalAlignment="Stretch" />
         </Border>
 
         <mvvm:View Grid.Row="1" Style="{DynamicResource CODE.Framework-Layout-ListPrimarySecondaryFormLayout}">
             <mvvm:View Style="{DynamicResource CODE.Framework-Layout-FlowFormLayout}" UIElementType="Secondary">
                 <Label>Filter</Label>
-                <TextBox x:Name="text" mvvm:View.WidthEx="10" VerticalContentAlignment="Center" Text="{Binding ElementName=icons, Path=SelectedItem}" />
-
-                <Label></Label>
-                <Button Content="Copy" mvvm:View.WidthEx="5" />
+                <TextBox Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" mvvm:View.WidthEx="15" />
 
                 <Label>Zoom</Label>
-                <Slider x:Name="slider" Width="218" Minimum="36" Maximum="128" Value="64" />
+                <Slider x:Name="slider" Width="150" Minimum="40" Maximum="110" Value="75" />
+
+                <Border mvvm:View.GroupBreak="True" mvvm:View.IsStandAloneEditControl="True" mvvm:View.SpanFullWidth="True"  Background="#FF474444">
+                    <StackPanel Orientation="Vertical" Margin="4">
+                        <Rectangle Fill="{Binding SelectedItem.Icon}" Width="160" Height="160" />
+                        <Label Content="{Binding SelectedItem.Name}" Foreground="White" FontSize="10.25" /> 
+                    </StackPanel>
+                </Border>
             </mvvm:View>
 
-            <ListBox ItemsSource="{Binding Items}" mvvm:View.UIElementType="Primary"
-                Background="#FF474444" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                mvvm:View.UIElementType="Primary" Background="#FF474444" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True"/>
@@ -49,13 +53,11 @@
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <Rectangle Fill="{Binding Icon}" Height="{Binding ElementName=slider, Path=Value}" Width="{Binding ElementName=slider, Path=Value}" Margin="5">
-                                <Rectangle.ToolTip>
-                                    <TextBlock Text="{Binding Name}" />
-                                </Rectangle.ToolTip>
-                            </Rectangle>
-                        </StackPanel>
+                        <Rectangle Fill="{Binding Icon}" Height="{Binding ElementName=slider, Path=Value}" Width="{Binding ElementName=slider, Path=Value}" Margin="5">
+                            <Rectangle.ToolTip>
+                                <TextBlock Text="{Binding Name}" />
+                            </Rectangle.ToolTip>
+                        </Rectangle>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

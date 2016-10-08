@@ -153,6 +153,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Home\BingViewModel.cs" />
     <Compile Include="Models\Home\BuildViewModel.cs" />
+    <Compile Include="Models\Home\Classes\IconWrapper.cs" />
     <Compile Include="Models\Home\PasswordGeneratorViewModel.cs" />
     <Compile Include="Models\Home\ResourceVisualizerViewModel.cs" />
     <Compile Include="Models\Home\ShaGeneratorViewModel.cs" />
