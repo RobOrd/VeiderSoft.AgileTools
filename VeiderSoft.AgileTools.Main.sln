@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeiderSoft.AgileTools.Main"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMFileDBSpecific", "ORMFileDBSpecific.csproj", "{556467F7-6805-4DCA-8C33-E32C37337046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockCodeGen", "..\BlockCodeGen\BlockCodeGen.csproj", "{3F2E3CD5-BB55-47F2-B775-B555D50D0930}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockCodeGen", "BlockCodeGen\BlockCodeGen.csproj", "{3F2E3CD5-BB55-47F2-B775-B555D50D0930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
