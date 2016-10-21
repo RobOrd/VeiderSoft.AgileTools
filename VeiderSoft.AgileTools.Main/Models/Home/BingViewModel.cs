@@ -49,7 +49,9 @@ namespace VeiderSoft.AgileTools.Main.Models.Home
             //photo of the day data in xml format
             _feed = "http://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=en-US";
 
-            DownLoad();
+            Task.Run(() => {
+                DownLoad();
+            });
         }
         public void DownLoad()
         {
@@ -93,7 +95,7 @@ namespace VeiderSoft.AgileTools.Main.Models.Home
 
             using (var client = new WebClient())
             {
-                client.DownloadFile(imgurl, _tempfilename);
+                client.DownloadFileAsync(new Uri(imgurl), _tempfilename);
             }
         }
     }
