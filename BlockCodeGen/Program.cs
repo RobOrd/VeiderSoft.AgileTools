@@ -14,7 +14,7 @@ namespace BlockCodeGen
 
         public static void Main(string[] args)
         {
-            Console.Title = typeof(Program).Name;
+            Console.Title = "bcg";
 
             // Any static classes containing commands for use from the 
             // console are located in the Commands namespace. Load 
@@ -42,6 +42,12 @@ namespace BlockCodeGen
                 // Add the dictionary of methods for the current class into a dictionary of command classes:
                 _commandLibraries.Add(commandClass.Name, methodDictionary);
             }
+
+            var fc = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Console.WriteLine("VeiderSoft bcg (2011-2017). All rights reserved.");
+            Console.ForegroundColor = fc;
 
             Run();
         }

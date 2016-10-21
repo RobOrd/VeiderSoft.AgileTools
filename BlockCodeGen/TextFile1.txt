@@ -1,0 +1,6 @@
+﻿https://msdn.microsoft.com/en-us/library/dd820620.aspx
+https://msdn.microsoft.com/en-us/library/dd820614.aspx
+http://www.hanselman.com/blog/T4TextTemplateTransformationToolkitCodeGenerationBestKeptVisualStudioSecret.aspx
+https://msdn.microsoft.com/en-us/library/bb126445.aspx
+http://www.codeproject.com/Articles/15728/Write-your-own-Code-Generator-or-Template-Engine-i
+c# generate code through template
