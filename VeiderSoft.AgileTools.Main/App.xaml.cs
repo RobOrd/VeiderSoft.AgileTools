@@ -1,8 +1,6 @@
-using System.Windows;
 using CODE.Framework.Wpf.Mvvm;
-using CODE.Framework.Wpf.Mvvm.Tools;
 using Project.Client.SHAGenerator.Models.Home;
-
+using System.Windows;
 
 namespace Project.Client.SHAGenerator
 {

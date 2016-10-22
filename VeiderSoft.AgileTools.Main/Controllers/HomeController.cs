@@ -35,5 +35,10 @@ namespace Project.Client.SHAGenerator.Controllers
         {
             return ViewModal(new ResourceVisualizerViewModel());
         }
+
+        public ActionResult BlockCodeGenerator()
+        {
+            return ViewModal(new BCGViewModel());
+        }
     }
 }

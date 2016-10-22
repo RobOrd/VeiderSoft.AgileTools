@@ -151,6 +151,7 @@
     <Compile Include="Clases\SimpleViewModel.cs" />
     <Compile Include="Clases\StandardDataList.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\Home\BCGViewModel.cs" />
     <Compile Include="Models\Home\BingViewModel.cs" />
     <Compile Include="Models\Home\BuildViewModel.cs" />
     <Compile Include="Models\Home\Classes\IconWrapper.cs" />
@@ -305,6 +306,50 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home\Bing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Battleship.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Geek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Metro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Vapor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Wildcat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.Workplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>BlockCodeGenerator.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\BlockCodeGenerator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

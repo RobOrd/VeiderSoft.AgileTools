@@ -26,6 +26,7 @@ namespace Project.Client.SHAGenerator.Models.Home
             Actions.Add(new ViewAction("Password Gen", category: "Tools", execute: (a, o) => Controller.Action("Home", "Passgen"), brushResourceKey: "CODE.Framework-Icon-Login"));
             Actions.Add(new ViewAction("Build Sln", category: "Tools", execute: (a, o) => Controller.Action("Home", "Build"), brushResourceKey: "CODE.Framework-Icon-Bold"));
             Actions.Add(new ViewAction("Resources Visualizer", category: "Tools", execute: (a, o) => Controller.Action("Home", "ResourceVisualizer"), brushResourceKey: "CODE.Framework-Icon-View"));
+            Actions.Add(new ViewAction("BCG", category: "Tools", execute: (a, o) => Controller.Action("Home", "BlockCodeGenerator"), brushResourceKey: "CODE.Framework-Icon-Keyboard"));
 
             Controller.Action("Home", "Bing");
         }
