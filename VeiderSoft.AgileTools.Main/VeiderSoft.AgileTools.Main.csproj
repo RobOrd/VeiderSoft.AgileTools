@@ -509,6 +509,10 @@
     <Resource Include="Images\Application.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BlockCodeGen\BlockCodeGen.csproj">
+      <Project>{3f2e3cd5-bb55-47f2-b775-b555d50d0930}</Project>
+      <Name>BlockCodeGen</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ORMFileDBSpecific.csproj">
       <Project>{556467f7-6805-4dca-8c33-e32c37337046}</Project>
       <Name>ORMFileDBSpecific</Name>
