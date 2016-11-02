@@ -19,23 +19,11 @@ namespace BlockCodeGen.Commands
             sb.AppendLine("Block Code Generator");
             sb.AppendLine("Commands Help");
 
-            sb.AppendLine("prop");
+            sb.AppendLine(ConsoleFormatting.Indent(2) + "prop   <datatype> <propertyName> [options]");
+            sb.AppendLine(ConsoleFormatting.Indent(6) + "-options for <for>");
 
             return sb.ToString();
         }
-
-        //public static string prop(string p1)
-        //{
-        //    return $"{ConsoleFormatting.Indent(2)} prop with p1={p1}";
-        //}
-        //public static string prop(string p1, string p2)
-        //{
-        //    return $"{ConsoleFormatting.Indent(2)} prop with p1={p1}, p2={p2}";
-        //}
-        //public static string prop(string p1, string p2, string p3)
-        //{
-        //    return $"{ConsoleFormatting.Indent(2)} prop with p1={p1}, p2={p2}, p3={p3}";
-        //}
 
         public static string prop(string dataType, string propName)
         {
