@@ -1,10 +1,14 @@
-using System.Windows;
 using CODE.Framework.Wpf.Mvvm;
+using System;
+using System.Diagnostics;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
 
 namespace Project.Client.SHAGenerator.Models.Home
 {
     public class StartViewModel : ViewModel
     {
+        private string module = "VeiderSoft.AgileTools.PowerShell.dll";
         public static StartViewModel Current { get; set; }
 
         public StartViewModel()
@@ -27,8 +31,37 @@ namespace Project.Client.SHAGenerator.Models.Home
             Actions.Add(new ViewAction("Build Sln", category: "Tools", execute: (a, o) => Controller.Action("Home", "Build"), brushResourceKey: "CODE.Framework-Icon-Bold"));
             Actions.Add(new ViewAction("Resources Visualizer", category: "Tools", execute: (a, o) => Controller.Action("Home", "ResourceVisualizer"), brushResourceKey: "CODE.Framework-Icon-View"));
             Actions.Add(new ViewAction("BCG", category: "Tools", execute: (a, o) => Controller.Action("Home", "BlockCodeGenerator"), brushResourceKey: "CODE.Framework-Icon-Keyboard"));
+            Actions.Add(new ViewAction("PowerShell", category: "Tools", execute: (a, o) => ExecutePowerShell(), brushResourceKey: "CODE.Framework-Icon-Remote"));
 
             Controller.Action("Home", "Bing");
+        }
+
+        private void ExecutePowerShell()
+        {
+            Runspace runSpace = RunspaceFactory.CreateRunspace();
+            runSpace.Open();
+
+            Pipeline pipeline = runSpace.CreatePipeline();
+
+            //Command import = new Command("Import-Module");
+            //import.Parameters.Add("Assembly", module);
+            //import.Parameters.Add("Name", module);
+            //pipeline.Commands.Add(import);
+
+            //Command get = new Command("Get-Command");
+            //get.Parameters.Add("Module", module);
+            //pipeline.Commands.Add(get);
+
+            pipeline.Commands.Add("Import-Module");
+            var command = pipeline.Commands[0];
+            command.Parameters.Add("Assembly", module);
+
+            var output = pipeline.Invoke();
+            foreach (PSObject psObject in output)
+            {
+                Process process = (Process)psObject.BaseObject;
+                Console.WriteLine("Process name: " + process.ProcessName);
+            }
         }
     }
 }
